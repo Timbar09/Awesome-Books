@@ -1,3 +1,112 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  --lightGrey: rgb(244, 244, 244);
+  --white: rgb(255, 255, 255);
+
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  background-color: var(--lightGrey);
+}
+
+.container {
+  max-width: 90em;
+  margin: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container-px {
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.container-pall {
+  padding: 3rem 2rem;
+}
+
+.hero {
+  background-color: var(--white);
+}
+
+.hero .container {
+  max-width: 70em;
+}
+
+.hero__title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.hero__book {
+  padding: 0.25rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 0.25fr;
+  border-bottom: solid 1px black;
+}
+
+.hero__book:nth-child(odd) {
+  background-color: white;
+}
+
+.hero__book:nth-child(even) {
+  background-color: var(--lightGrey);
+}
+
+.hero__book-remove {
+  padding: 0.5rem;
+  height: max-content;
+  align-self: center;
+  border: solid;
+  color: var(--white);
+  background-color: black;
+}
+
+.Form {
+  background-color: var(--grey);
+}
+
+.Form .container {
+  max-width: 25em;
+}
+
+.form-input {
+  position: relative;
+}
+
+.form-input input {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.form-input:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.book-add {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  background-color: black;
+  border: solid 3px black;
+  border-radius: 0;
+}
+
 .close {
   display: none;
 }
