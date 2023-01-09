@@ -53,7 +53,7 @@ ul {
 }
 
 .hero__book {
-  padding: 0.25rem 1rem;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.25fr;
   border-bottom: solid 1px black;
@@ -91,6 +91,8 @@ ul {
 .form-input input {
   padding: 0.5rem;
   width: 100%;
+  border-radius: 0;
+  border: solid 1px black;
 }
 
 .form-input:not(:last-child) {
