@@ -12,6 +12,8 @@ html {
 body {
   --lightGrey: rgb(244, 244, 244);
   --white: rgb(255, 255, 255);
+  --danger: rgb(240, 28, 28);
+  --lime: rgb(28, 187, 28);
 
   margin: 0;
   padding: 0;
@@ -20,20 +22,24 @@ body {
   background-color: var(--lightGrey);
 }
 
+.section__title {
+  text-align: center;
+}
+
 .container {
   max-width: 90em;
   margin: auto;
+}
+
+.container-px {
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.container-px {
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
 
 .container-pall {
@@ -51,6 +57,11 @@ ul {
 .hero__title {
   text-align: center;
   font-size: 3rem;
+}
+
+.hero__collection {
+  max-height: 13.65rem;
+  overflow-y: scroll;
 }
 
 .hero__book {
@@ -76,11 +87,12 @@ ul {
   border: solid black;
   color: var(--white);
   background-color: black;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 
 .hero__book-remove:hover {
   border-radius: 0.25rem;
+  background-color: var(--danger);
   box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
 }
 
@@ -117,11 +129,12 @@ ul {
   background-color: black;
   border: solid 3px black;
   border-radius: 0;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 
 .book-add:hover {
   border-radius: 0.25rem;
+  background-color: var(--lime);
   box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
 }
 
