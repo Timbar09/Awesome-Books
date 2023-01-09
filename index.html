@@ -9,48 +9,42 @@
   </head>
   <body>
     <main class="main">
-      <section class="section hero">
+      <section class="books-container hero">
         <div class="container container-pall">
           <h1 class="hero__title">Awesome Books</h1>
 
-          <ul class="hero__collection">
-            <li class="hero__book">
-              <p class="hero__book-title">book one</p>
-              <button class="hero__book-remove">Remove</button>
-              <hr />
-            </li>
-          </ul>
+          <ul class="hero__collection"></ul>
         </div>
       </section>
 
       <section class="Form">
-        <div class="container">
-          <form action="">
-            <div class="form-input">
-              <label class="title-label" for="title"></label>
-              <input
-                class="book-title"
-                placeholder="Title"
-                type="text"
-                id="title"
-              />
-            </div>
+        <form action="">
+          <div class="form-input">
+            <label class="title-label" for="title"></label>
+            <input
+              class="book-title"
+              placeholder="Title"
+              type="text"
+              id="title"
+              required
+            />
+          </div>
 
-            <div class="form-input">
-              <label class="Author-label" for="author"></label>
-              <input
-                class="book-author"
-                placeholder="Author"
-                type="text"
-                id="author"
-              />
-            </div>
+          <div class="form-input">
+            <label class="Author-label" for="author"></label>
+            <input
+              class="book-author"
+              placeholder="Author"
+              type="text"
+              id="author"
+              required
+            />
+          </div>
 
-            <div class="form-btn">
-              <button class="book-add" type="submit">Add</button>
-            </div>
-          </form>
-        </div>
+          <div class="form-btn">
+            <button class="book-add" type="submit">Add</button>
+          </div>
+        </form>
       </section>
     </main>
   </body>
