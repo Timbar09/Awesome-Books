@@ -4,7 +4,7 @@ export let collection = [
     bookAuthor: document.querySelector(".hero__book-author").innerHTML,
   },
 ];
-
+let objCounter = 1;
 export let cancelButtons = document.querySelectorAll(".hero__book-remove");
 export const addBtn = document.querySelector(".book-add");
 let booksContainer = document.querySelector(".hero__collection");
@@ -21,13 +21,14 @@ export const addBook = () => {
 };
 
 export const insertBook = () => {
+  objCounter = objCounter + 1;
   const title = document.querySelector(".book-title").value;
   const author = document.querySelector(".book-author").value;
   booksContainer.innerHTML += `
-        <li class="hero__book" id=${collection.length}>
+        <li class="hero__book" id=${objCounter}>
           <p class="hero__book-title">${title}</p>
           <p class="hero__book-author">${author}</p>
-          <button class="hero__book-remove" id=${collection.length}>Remove</button>
+          <button class="hero__book-remove" id=${objCounter}>Remove</button>
           <hr />
         </li>
 `;
