@@ -1,16 +1,9 @@
-import {
-  collection,
-  addBook,
-  insertBook,
-  objCounter,
-  removeLoad,
-} from "./utilities.js";
+import { collection, addBook, insertBook, removeLoad } from "./utilities.js";
 
 const addBtn = document.querySelector(".book-add");
 
 addBtn.addEventListener("click", (e) => {
   addBook();
-  insertBook(objCounter);
+  insertBook();
   removeLoad();
-  console.log(collection);
 });
