@@ -1,10 +1,25 @@
-import { collection, addBook, insertBook, rmoveLoad } from "./utilities.js";
+import {
+  collection,
+  addBook,
+  insertBook,
+  cancelButtons,
+  bookContainers,
+  objCounter,
+} from "./utilities.js";
 
 const addBtn = document.querySelector(".book-add");
 
+const removeLoad = () => {
+  cancelButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      collection.splice(btn.id - 1, 1);
+      bookContainers[btn.id - 1].classList.add("close");
+    });
+  });
+};
+
 addBtn.addEventListener("click", (e) => {
   addBook();
-  insertBook();
-  localStorage.setItem("book", JSON.stringify(collection));
-  rmoveLoad();
+  insertBook(objCounter);
+  removeLoad();
 });
