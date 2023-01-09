@@ -1,8 +1,8 @@
-import { collection, addBook, insertBook, removeLoad } from "./utilities.js";
+import { addBook, insertBook, removeLoad } from './utilities.js';
 
-const addBtn = document.querySelector(".book-add");
+const addBtn = document.querySelector('.book-add');
 
-addBtn.addEventListener("click", (e) => {
+addBtn.addEventListener('click', () => {
   addBook();
   insertBook();
   removeLoad();

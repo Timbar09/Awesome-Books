@@ -1,23 +1,23 @@
-export let collection = [];
-export let cancelButtons = document.querySelectorAll(".hero__book-remove");
-export const addBtn = document.querySelector(".book-add");
-let booksContainer = document.querySelector(".hero__collection");
-export let bookContainers = document.querySelectorAll(".hero__book");
+let collection = [];
+let cancelButtons = document.querySelectorAll('.hero__book-remove');
+export const addBtn = document.querySelector('.book-add');
+let booksContainer = document.querySelector('.hero__collection');
+let bookContainers = document.querySelectorAll('.hero__book');
 
 export const addBook = () => {
-  const title = document.querySelector(".book-title").value;
-  const author = document.querySelector(".book-author").value;
+  const title = document.querySelector('.book-title').value;
+  const author = document.querySelector('.book-author').value;
   collection.push({
     bookTitle: title,
     bookAuthor: author,
   });
-  localStorage.setItem("book", JSON.stringify(collection));
-  bookContainers = document.querySelectorAll(".hero__book");
-  cancelButtons = document.querySelectorAll(".hero__book-remove");
+  localStorage.setItem('book', JSON.stringify(collection));
+  bookContainers = document.querySelectorAll('.hero__book');
+  cancelButtons = document.querySelectorAll('.hero__book-remove');
 };
 
 export const insertBook = () => {
-  booksContainer.innerHTML = ``;
+  booksContainer.innerHTML = '';
   collection.forEach((book, index) => {
     booksContainer.innerHTML += `
         <li class="hero__book" id=${index + 1}>
@@ -28,27 +28,27 @@ export const insertBook = () => {
         </li>
         `;
   });
-  bookContainers = document.querySelectorAll(".hero__book");
-  cancelButtons = document.querySelectorAll(".hero__book-remove");
+  bookContainers = document.querySelectorAll('.hero__book');
+  cancelButtons = document.querySelectorAll('.hero__book-remove');
   removeLoad();
 };
 
 export const removeLoad = () => {
   cancelButtons.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener('click', () => {
       collection.splice(index, 1);
-      localStorage.setItem("book", JSON.stringify(collection));
+      localStorage.setItem('book', JSON.stringify(collection));
       insertBook();
     });
   });
 };
 
 const data = () => {
-  const loadCollection = JSON.parse(localStorage.getItem("book"));
+  const loadCollection = JSON.parse(localStorage.getItem('book'));
   if (loadCollection) {
     collection = loadCollection;
-    for (let i = 0; i < collection.length; i++) insertBook(i);
+    insertBook();
   }
 };
 
-window.addEventListener("DOMContentLoaded", data);
+window.addEventListener('DOMContentLoaded', data);
