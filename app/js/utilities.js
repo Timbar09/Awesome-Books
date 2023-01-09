@@ -16,6 +16,16 @@ export const addBook = () => {
   cancelButtons = document.querySelectorAll('.hero__book-remove');
 };
 
+export const removeLoad = () => {
+  cancelButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      collection.splice(index, 1);
+      localStorage.setItem('book', JSON.stringify(collection));
+      bookContainers[index].classList.add('close');
+    });
+  });
+};
+
 export const insertBook = () => {
   booksContainer.innerHTML = '';
   collection.forEach((book, index) => {
@@ -31,16 +41,6 @@ export const insertBook = () => {
   bookContainers = document.querySelectorAll('.hero__book');
   cancelButtons = document.querySelectorAll('.hero__book-remove');
   removeLoad();
-};
-
-export const removeLoad = () => {
-  cancelButtons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      collection.splice(index, 1);
-      localStorage.setItem('book', JSON.stringify(collection));
-      insertBook();
-    });
-  });
 };
 
 const data = () => {
