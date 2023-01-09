@@ -1,24 +1,28 @@
-export const collection = [];
-collection.push({
-  bookTitle: document.querySelector('.hero__book-title').innerHTML,
-  bookAuthor: document.querySelector('.hero__book-author').innerHTML,
-});
+export let collection = [
+  {
+    bookTitle: document.querySelector(".hero__book-title").innerHTML,
+    bookAuthor: document.querySelector(".hero__book-author").innerHTML,
+  },
+];
 
-export const addBtn = document.querySelector('.book-add');
-const booksContainer = document.querySelector('.hero__collection');
+export let cancelButtons = document.querySelectorAll(".hero__book-remove");
+export const addBtn = document.querySelector(".book-add");
+let booksContainer = document.querySelector(".hero__collection");
+let bookContainers = document.querySelectorAll(".hero__book");
 
 export const addBook = () => {
-  const title = document.querySelector('.book-title').value;
-  const author = document.querySelector('.book-author').value;
+  const title = document.querySelector(".book-title").value;
+  const author = document.querySelector(".book-author").value;
   collection.push({
     bookTitle: title,
     bookAuthor: author,
   });
+  return;
 };
 
 export const insertBook = () => {
-  const title = document.querySelector('.book-title').value;
-  const author = document.querySelector('.book-author').value;
+  const title = document.querySelector(".book-title").value;
+  const author = document.querySelector(".book-author").value;
   booksContainer.innerHTML += `
         <li class="hero__book" id=${collection.length}>
           <p class="hero__book-title">${title}</p>
@@ -27,14 +31,16 @@ export const insertBook = () => {
           <hr />
         </li>
 `;
+  bookContainers = document.querySelectorAll(".hero__book");
+  cancelButtons = document.querySelectorAll(".hero__book-remove");
+  return;
 };
 
-export const remove = (id) => {
-  // collection = collection.filter((book, index) => {
-  //   index !== id - 1;
-  // });
-  console.log(id);
-
-  console.log(collection);
-  // return collection;
+export const rmoveLoad = () => {
+  cancelButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      collection.splice(btn.id - 1, 1);
+      bookContainers[btn.id - 1].classList.add("close");
+    });
+  });
 };

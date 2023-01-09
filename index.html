@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Awesome Books</title>
     <script src="app/js/script.js" type="module"></script>
   </head>
@@ -25,22 +26,33 @@
       </section>
 
       <section class="Form">
-        <form action="">
-          <div class="form-input">
-            <label class="title-label" for="title"></label>
-            <input class="book-title" placeholder="Title" type="text" id="title" required />
-          </div>
+        <div class="form-input">
+          <label class="title-label" for="title"></label>
+          <input
+            class="input-text book-title"
+            placeholder="Title"
+            type="text"
+            id="title"
+            required
+          />
+        </div>
 
-          <div class="form-input">
-            <label class="Author-label" for="author"></label>
-            <input class="book-author" placeholder="Author" type="text" id="author" required />
-          </div>
+        <div class="form-input">
+          <label class="Author-label" for="author"></label>
+          <input
+            class="input-text book-author"
+            placeholder="Author"
+            type="text"
+            id="author"
+            required
+          />
+        </div>
 
-          <div class="form-btn">
-            <button class="book-add" type="submit">Add</button>
-          </div>
-        </form>
+        <div class="form-btn">
+          <button class="book-add" type="submit">Add</button>
+        </div>
       </section>
     </main>
+    <script src="./app/js/script.js" type="module"></script>
   </body>
 </html>

@@ -1,19 +1,10 @@
-import { collection, addBook, insertBook, remove } from './utilities.js';
-const form = document.querySelector('form');
+import { collection, addBook, insertBook, rmoveLoad } from "./utilities.js";
 
-const cancelButtons = document.querySelectorAll('.hero__book-remove');
+const addBtn = document.querySelector(".book-add");
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+addBtn.addEventListener("click", (e) => {
   addBook();
   insertBook();
-  const cancelButtons = document.querySelectorAll('.hero__book-remove');
-  console.log(collection);
-});
-
-cancelButtons.forEach((btn, index) => {
-  btn.addEventListener('click', () => {
-    // remove(btn.id);
-    console.log(index);
-  });
+  localStorage.setItem("book", JSON.stringify(collection));
+  rmoveLoad();
 });
