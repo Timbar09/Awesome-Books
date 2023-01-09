@@ -1,7 +1,7 @@
 let collection = [];
 let cancelButtons = document.querySelectorAll('.hero__book-remove');
 export const addBtn = document.querySelector('.book-add');
-let booksContainer = document.querySelector('.hero__collection');
+const booksContainer = document.querySelector('.hero__collection');
 let bookContainers = document.querySelectorAll('.hero__book');
 
 export const addBook = () => {
