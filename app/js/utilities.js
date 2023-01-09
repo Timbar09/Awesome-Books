@@ -47,9 +47,8 @@ const data = () => {
   const loadCollection = JSON.parse(localStorage.getItem("book"));
   if (loadCollection) {
     collection = loadCollection;
-    for (let i = 2; i < collection.length; i++) insertBook(i);
+    for (let i = 0; i < collection.length; i++) insertBook(i);
   }
-  removeLoad();
 };
 
 window.addEventListener("DOMContentLoaded", data);
