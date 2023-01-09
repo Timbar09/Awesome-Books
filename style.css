@@ -16,6 +16,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.4;
+  font-family: 'Ubuntu', sans-serif;
   background-color: var(--lightGrey);
 }
 
@@ -71,9 +72,16 @@ ul {
   padding: 0.5rem;
   height: max-content;
   align-self: center;
-  border: solid;
+  font-family: 'Ubuntu', sans-serif;
+  border: solid black;
   color: var(--white);
   background-color: black;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.hero__book-remove:hover {
+  border-radius: 0.25rem;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
 }
 
 .Form {
@@ -89,6 +97,7 @@ ul {
 }
 
 .form-input input {
+  font-family: 'Ubuntu', sans-serif;
   padding: 0.5rem;
   width: 100%;
   border-radius: 0;
@@ -103,10 +112,17 @@ ul {
   position: relative;
   display: inline-block;
   padding: 0.5rem 1rem;
+  font-family: 'Ubuntu', sans-serif;
   color: var(--white);
   background-color: black;
   border: solid 3px black;
   border-radius: 0;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.book-add:hover {
+  border-radius: 0.25rem;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
 }
 
 .close {
