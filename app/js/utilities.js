@@ -1,46 +1,44 @@
 export let collection = [
   {
-    bookTitle: document.querySelector('.hero__book-title').innerHTML,
-    bookAuthor: document.querySelector('.hero__book-author').innerHTML,
+    bookTitle: document.querySelector(".hero__book-title").innerHTML,
+    bookAuthor: document.querySelector(".hero__book-author").innerHTML,
   },
 ];
-let objCounter = 1;
-export let cancelButtons = document.querySelectorAll('.hero__book-remove');
-export const addBtn = document.querySelector('.book-add');
-let booksContainer = document.querySelector('.hero__collection');
-let bookContainers = document.querySelectorAll('.hero__book');
+export let objCounter = 1;
+export let cancelButtons = document.querySelectorAll(".hero__book-remove");
+export const addBtn = document.querySelector(".book-add");
+let booksContainer = document.querySelector(".hero__collection");
+export let bookContainers = document.querySelectorAll(".hero__book");
 
 export const addBook = () => {
-  const title = document.querySelector('.book-title').value;
-  const author = document.querySelector('.book-author').value;
+  const title = document.querySelector(".book-title").value;
+  const author = document.querySelector(".book-author").value;
   collection.push({
     bookTitle: title,
     bookAuthor: author,
   });
+  localStorage.setItem("book", JSON.stringify(collection));
+  objCounter = objCounter + 1;
   return;
 };
 
-export const insertBook = () => {
-  objCounter = objCounter + 1;
-  const title = document.querySelector('.book-title').value;
-  const author = document.querySelector('.book-author').value;
+export const insertBook = (objCnt) => {
   booksContainer.innerHTML += `
-        <li class="hero__book" id=${objCounter}>
-          <p class="hero__book-title">${title}</p>
-          <p class="hero__book-author">${author}</p>
-          <button class="hero__book-remove" id=${objCounter}>Remove</button>
+        <li class="hero__book" id=${objCnt}>
+          <p class="hero__book-title">${collection[objCnt - 1].bookTitle}</p>
+          <p class="hero__book-author">${collection[objCnt - 1].bookAuthor}</p>
+          <button class="hero__book-remove" id=${objCnt}>Remove</button>
+          <hr />
         </li>
 `;
-  bookContainers = document.querySelectorAll('.hero__book');
-  cancelButtons = document.querySelectorAll('.hero__book-remove');
+  bookContainers = document.querySelectorAll(".hero__book");
+  cancelButtons = document.querySelectorAll(".hero__book-remove");
   return;
 };
 
-export const rmoveLoad = () => {
-  cancelButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      collection.splice(btn.id - 1, 1);
-      bookContainers[btn.id - 1].classList.add('close');
-    });
-  });
+const data = () => {
+  collection = JSON.parse(localStorage.getItem("book"));
+  for (let i = 2; i < collection.length; i++) insertBook(i);
 };
+
+window.addEventListener("DOMContentLoaded", data);
