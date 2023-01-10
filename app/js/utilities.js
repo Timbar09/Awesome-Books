@@ -1,5 +1,5 @@
 const form = document.querySelector('.form__content');
-
+const booksContainer = document.querySelector('.hero__collection');
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -7,7 +7,6 @@ class Book {
   }
 
   addBook() {
-    const booksContainer = document.querySelector('.hero__collection');
     const newBook = document.createElement('li');
     newBook.className = 'hero__book';
     newBook.innerHTML = `
@@ -16,6 +15,12 @@ class Book {
     <button class="hero__book-remove">Remove</button>
     `;
     booksContainer.appendChild(newBook);
+  }
+
+  removeBook(element) {
+    if (element.classList.contains('.hero__book-remove')) {
+      element.parentElement.remove();
+    }
   }
 }
 
@@ -26,4 +31,10 @@ form.addEventListener('submit', (e) => {
   const book = new Book(authorText, titleText);
   book.addBook();
   console.log(book);
+});
+
+booksContainer.addEventListener('click', (e) => {
+  // const book = new Book('title', 'author');
+
+  removeBook(e.target);
 });
