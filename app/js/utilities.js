@@ -63,18 +63,13 @@ class StoreBooks {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
-  static removeBook(title) {
+  static removeBook(element) {
     const books = StoreBooks.getBooks();
-
-    console.log('Remove');
-
-    books.forEach((book, index) => {
-      if (book.title === title) {
-        books.splice(index, 1);
-      }
+    const title = element.parentElement.firstElementChild.innerHTML;
+    const index = books.findIndex((book) => {
+      return book.title === title;
     });
-
-    console.log(books);
+    books.splice(index, 1);
 
     localStorage.setItem('books', JSON.stringify(books));
   }
