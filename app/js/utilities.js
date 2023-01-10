@@ -1,46 +1,9 @@
+const booksContainer = document.querySelector('.hero__collection');
 class Book {
-  static id = 0;
   constructor(title, author) {
     this.title = title;
     this.author = author;
     this.id = Book.id;
-  }
-}
-
-class userInterface {
-  static loadBooks() {
-    const books = StoreBooks.getBooks();
-
-    books.forEach((book) => {
-      userInterface.addBook(book);
-    });
-  }
-
-  static addBook(book) {
-    const newBook = document.createElement('li');
-    newBook.className = 'hero__book';
-    newBook.innerHTML = `
-    <p class='hero__book-title'>${book.title}</p>
-    <p class='hero__book-author'>${book.author}</p>
-    <button class='hero__book-remove' id='${Book.id}'>Remove</button>
-    `;
-    booksContainer.appendChild(newBook);
-  }
-
-  static bookAddSuccess() {
-    let formTitle = document.querySelector('.section__title');
-    formTitle.innerHTML = 'New book added!';
-    console.log(formTitle);
-
-    setTimeout(() => {
-      formTitle.innerHTML = 'Add new book';
-    }, 2000);
-  }
-
-  static removeBook(target) {
-    if (target.classList.contains('hero__book-remove')) {
-      target.parentElement.remove();
-    }
   }
 }
 
@@ -75,6 +38,41 @@ class StoreBooks {
   }
 }
 
+class userInterface {
+  static loadBooks() {
+    const books = StoreBooks.getBooks();
+
+    books.forEach((book) => {
+      userInterface.addBook(book);
+    });
+  }
+
+  static addBook(book) {
+    const newBook = document.createElement('li');
+    newBook.className = 'hero__book';
+    newBook.innerHTML = `
+    <p class='hero__book-title'>${book.title}</p>
+    <p class='hero__book-author'>${book.author}</p>
+    <button class='hero__book-remove' id='${Book.id}'>Remove</button>
+    `;
+    booksContainer.appendChild(newBook);
+  }
+
+  static bookAddSuccess() {
+    const formTitle = document.querySelector('.section__title');
+    formTitle.innerHTML = 'New book added!';
+    setTimeout(() => {
+      formTitle.innerHTML = 'Add new book';
+    }, 2000);
+  }
+
+  static removeBook(target) {
+    if (target.classList.contains('hero__book-remove')) {
+      target.parentElement.remove();
+    }
+  }
+}
+
 window.addEventListener('load', userInterface.loadBooks);
 
 const form = document.querySelector('.form__content');
@@ -90,8 +88,6 @@ form.addEventListener('submit', (e) => {
   StoreBooks.addBook(book);
   userInterface.bookAddSuccess();
 });
-
-const booksContainer = document.querySelector('.hero__collection');
 
 booksContainer.addEventListener('click', (e) => {
   userInterface.removeBook(e.target);
