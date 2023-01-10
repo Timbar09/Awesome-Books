@@ -1,19 +1,22 @@
-const form = document.querySelector('.form__content');
-const booksContainer = document.querySelector('.hero__collection');
 class Book {
-  static books = [];
   static id = 0;
   constructor(title, author) {
     this.title = title;
     this.author = author;
     this.id = Book.id;
   }
+}
 
-  saveStorage(book) {
-    localStorage.setItem('books', JSON.stringify(book));
+class userInterface {
+  static loadBooks() {
+    const books = StoreBooks.getBooks();
+
+    books.forEach((book) => {
+      userInterface.addBook(book);
+    });
   }
 
-  addBook(book, id = Book.id) {
+  static addBook(book) {
     const newBook = document.createElement('li');
     newBook.className = 'hero__book';
     newBook.innerHTML = `
@@ -22,40 +25,82 @@ class Book {
     <button class='hero__book-remove' id='${Book.id}'>Remove</button>
     `;
     booksContainer.appendChild(newBook);
-    Book.books.push(book);
-    this.saveStorage(Book.books);
-    Book.id++;
   }
 
-  removeBook(element) {
-    if (element.classList.contains('hero__book-remove')) {
-      element.parentElement.remove();
+  static bookAddSuccess() {
+    let formTitle = document.querySelector('.section__title');
+    formTitle.innerHTML = 'New book added!';
+    console.log(formTitle);
+
+    setTimeout(() => {
+      formTitle.innerHTML = 'Add new book';
+    }, 2000);
+  }
+
+  static removeBook(target) {
+    if (target.classList.contains('hero__book-remove')) {
+      target.parentElement.remove();
     }
-    Book.books.splice(element.id, 1);
-    this.saveStorage(Book.books);
-  }
-
-  static displayBook() {
-    booksContainer.innerHTML = '';
-    Book.books = JSON.parse(localStorage.getItem('books'));
-    console;
-    Book.books.forEach((book) => {
-      addBook(book, book.id);
-    });
   }
 }
+
+class StoreBooks {
+  static getBooks() {
+    let books;
+
+    if (localStorage.getItem('books')) {
+      books = JSON.parse(localStorage.getItem('books'));
+    } else {
+      books = [];
+    }
+
+    return books;
+  }
+
+  static addBook(book) {
+    const books = StoreBooks.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(title) {
+    const books = StoreBooks.getBooks();
+
+    console.log('Remove');
+
+    books.forEach((book, index) => {
+      if (book.title === title) {
+        books.splice(index, 1);
+      }
+    });
+
+    console.log(books);
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+window.addEventListener('load', userInterface.loadBooks);
+
+const form = document.querySelector('.form__content');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const authorText = document.querySelector('.book-author').value;
   const titleText = document.querySelector('.book-title').value;
+
   const book = new Book(authorText, titleText);
-  book.addBook(book);
+
+  userInterface.addBook(book);
+  StoreBooks.addBook(book);
+  userInterface.bookAddSuccess();
 });
 
+const booksContainer = document.querySelector('.hero__collection');
+
 booksContainer.addEventListener('click', (e) => {
-  const book = new Book('title', 'author');
-  book.removeBook(e.target);
+  userInterface.removeBook(e.target);
+  StoreBooks.removeBook(e.target);
 });
 
 document.addEventListener('DOMContentLoaded', Book.displayBooks);
