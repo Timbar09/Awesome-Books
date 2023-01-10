@@ -104,6 +104,10 @@ ul {
   max-width: 25em;
 }
 
+.success-message {
+  color: var(--lime);
+}
+
 .form-input {
   position: relative;
 }

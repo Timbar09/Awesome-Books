@@ -29,8 +29,8 @@ class userInterface {
 
   static bookAddSuccess() {
     let formTitle = document.querySelector('.section__title');
-    formTitle.innerHTML = 'New book added!';
-    console.log(formTitle);
+    formTitle.innerHTML =
+      '<span class="success-message"><i class="fa-regular fa-circle-check"></i> New book added!</span>';
 
     setTimeout(() => {
       formTitle.innerHTML = 'Add new book';
