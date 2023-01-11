@@ -12,6 +12,7 @@ html {
 body {
   --lightGrey: rgb(244, 244, 244);
   --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
   --danger: rgb(240, 28, 28);
   --lime: rgb(28, 187, 28);
 
@@ -36,14 +37,57 @@ body {
   padding-left: 2rem;
 }
 
+.container-pall {
+  padding: 3rem 2rem;
+}
+
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.container-pall {
-  padding: 3rem 2rem;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+}
+
+.nav,
+.nav__links,
+.footer .container {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem 1.5rem;
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.nav__links {
+  gap: 1rem;
+}
+
+.nav__link {
+  transition: opacity 150ms ease-in-out;
+}
+
+.nav__link:hover {
+  opacity: 0.8;
 }
 
 .hero {
@@ -68,7 +112,7 @@ ul {
   padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr) 0.25fr;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px var(--black);
 }
 
 .hero__book:nth-child(odd) {
@@ -84,11 +128,10 @@ ul {
   height: max-content;
   align-self: center;
   font-family: 'Ubuntu', sans-serif;
-  border: solid black;
+  border: solid var(--black);
   color: var(--white);
-  background-color: black;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out,
-    background-color 150ms ease-in-out;
+  background-color: var(--black);
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 
 .hero__book-remove:hover {
@@ -118,7 +161,7 @@ ul {
   padding: 0.5rem;
   width: 100%;
   border-radius: 0;
-  border: solid 1px black;
+  border: solid 1px var(--black);
 }
 
 .form-input:not(:last-child) {
@@ -131,11 +174,10 @@ ul {
   padding: 0.5rem 1rem;
   font-family: 'Ubuntu', sans-serif;
   color: var(--white);
-  background-color: black;
-  border: solid 3px black;
+  background-color: var(--black);
+  border: solid 3px var(--black);
   border-radius: 0;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out,
-    background-color 150ms ease-in-out;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 
 .book-add:hover {
@@ -144,10 +186,16 @@ ul {
   box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
 }
 
-.display {
-  display: block;
-}
-
 .close {
   display: none;
+}
+
+.footer {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.footer .container {
+  justify-content: center;
+  gap: 3rem;
 }
