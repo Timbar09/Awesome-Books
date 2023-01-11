@@ -45,6 +45,7 @@ https://github.com/Timbar09/Awesome-Books.git
 **Run**
 To run project, run the following command:
 `cd Awesome-Books`
+
 Open in desired editor.
 
 
@@ -62,7 +63,7 @@ Open in desired editor.
 - GitHub: [@Timbar09](https://github.com/Timbar09)
 - Twitter: [@Milez09](https://twitter.com/DhirajS89134)
 - LinkedIn: [@miles-mosweu09](https://www.linkedin.com/in/miles-mosweu09)
-- 
+
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **[will improve page elements]**
