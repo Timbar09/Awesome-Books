@@ -37,6 +37,7 @@ class StoreBooks {
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
+
 class userInterface {
   static loadBooks() {
     const books = StoreBooks.getBooks();
