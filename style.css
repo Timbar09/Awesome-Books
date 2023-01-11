@@ -87,7 +87,8 @@ ul {
   border: solid black;
   color: var(--white);
   background-color: black;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out,
+    background-color 150ms ease-in-out;
 }
 
 .hero__book-remove:hover {
@@ -133,13 +134,18 @@ ul {
   background-color: black;
   border: solid 3px black;
   border-radius: 0;
-  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: border-radius 150ms ease-in-out, box-shadow 150ms ease-in-out,
+    background-color 150ms ease-in-out;
 }
 
 .book-add:hover {
   border-radius: 0.25rem;
   background-color: var(--lime);
   box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.18);
+}
+
+.display {
+  display: block;
 }
 
 .close {
